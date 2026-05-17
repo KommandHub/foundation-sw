@@ -1,0 +1,53 @@
+{
+    "name": "kommandhub/foundation-sw",
+    "description": "Kommandhub Foundation plugin for Shopware",
+    "type": "shopware-platform-plugin",
+    "version": "1.0.0",
+    "license": "proprietary",
+    "autoload": {
+        "psr-4": {
+            "Kommandhub\\Foundation\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Kommandhub\\Foundation\\Tests\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Anitche Chisom",
+            "email": "admin@kommandhub.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "shopware/core": "~6.6.0 || ~6.7.0"
+    },
+    "extra": {
+        "shopware-plugin-class": "Kommandhub\\Foundation\\KommandhubFoundationSW",
+        "label": {
+            "en-GB": "Kommandhub Foundation",
+            "fr-FR": "Kommandhub Foundation",
+            "de-DE": "Kommandhub Foundation"
+        },
+        "description": {
+            "en-GB": "Kommandhub Foundation plugin for Shopware",
+            "fr-FR": "Plugin Kommandhub Foundation pour Shopware",
+            "de-DE": "Kommandhub Foundation Plugin für Shopware"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "symfony/runtime": true,
+            "php-http/discovery": true
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^11.5",
+        "shopware/dev-tools": "^1.5",
+        "friendsofphp/php-cs-fixer": "^3.94",
+        "phpstan/phpstan": "^2.1",
+        "rregeer/phpunit-coverage-check": "^0.3.1"
+    }
+}

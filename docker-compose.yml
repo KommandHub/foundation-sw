@@ -1,0 +1,24 @@
+services:
+  shopware:
+    build: ./
+    container_name: kommandhub-foundation-plugin
+    environment:
+      - 'XDEBUG_ENABLED=0'
+      - 'PHP_VERSION=8.3'
+    volumes:
+      # ----------------------------------------------------------------------------------------------------------------------------------
+      # PLUGINS
+      - "./:/var/www/html/custom/plugins/KommandhubFoundationSW"
+      - "database:/var/lib/mysql"
+      - "./Makefile:/var/www/html/Makefile"
+      # - ".env.test:/var/www/html/.env.test"
+      # ----------------------------------------------------------------------------------------------------------------------------------
+      # EXCLUDE
+      - "/var/www/html/custom/plugins/KommandhubFoundationSW/.git/"
+      - "/var/www/html/custom/plugins/KommandhubFoundationSW/node_modules/"
+      - "/var/www/html/custom/plugins/KommandhubFoundationSW/vendor/"
+      # ----------------------------------------------------------------------------------------------------------------------------------
+
+volumes:
+  database:
+    driver: local
