@@ -99,11 +99,15 @@ class Migration1780389223AddAfricanLanguages extends MigrationStep
             // Locales need translations in Shopware
             $enLanguageId = $this->getEnLanguageId($connection);
             if ($enLanguageId) {
-                $this->upsertLocaleTranslation($connection, $localeId, $enLanguageId, $localeCode);
+                $this->upsertLocaleTranslation($connection, (string) $localeId, $enLanguageId, $localeCode);
             }
         }
 
-        return (string) $localeId;
+        if (!is_string($localeId)) {
+            throw new \RuntimeException('Failed to determine locale ID');
+        }
+
+        return $localeId;
     }
 
     private function upsertLocaleTranslation(Connection $connection, string $localeId, string $languageId, string $name): void
@@ -124,7 +128,7 @@ class Migration1780389223AddAfricanLanguages extends MigrationStep
         }
     }
 
-    private function getEnLanguageId(Connection $connection): ?string
+    private function getEnLanguageId(Connection $connection): string
     {
         $id = $connection->fetchOne(
             'SELECT `language`.`id` FROM `language` INNER JOIN `locale` ON `language`.`translation_code_id` = `locale`.`id` WHERE `locale`.`code` = :code',
@@ -133,6 +137,10 @@ class Migration1780389223AddAfricanLanguages extends MigrationStep
 
         if (!$id) {
             return Uuid::fromHexToBytes(Defaults::LANGUAGE_SYSTEM);
+        }
+
+        if (!is_string($id)) {
+            throw new \RuntimeException('Failed to determine English language ID');
         }
 
         return $id;

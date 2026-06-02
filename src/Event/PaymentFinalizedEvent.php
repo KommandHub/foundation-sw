@@ -19,10 +19,10 @@ use Shopware\Core\Framework\Event\ShopwareEvent;
 abstract class PaymentFinalizedEvent implements ShopwareEvent
 {
     public function __construct(
-        protected Context $context,
         protected OrderEntity $order,
         protected OrderTransactionEntity $orderTransaction,
-        protected PaymentTransactionStruct $paymentTransactionStruct
+        protected PaymentTransactionStruct $paymentTransactionStruct,
+        protected Context $context,
     ) {
     }
 

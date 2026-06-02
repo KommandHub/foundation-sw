@@ -33,9 +33,9 @@ CONTAINER_PLUGIN_DIR := /var/www/html/$(PLUGIN_REL_PATH)
 ## Shared command flags
 COMPOSER_FLAGS := --no-interaction --optimize-autoloader --no-scripts
 
-PHPUNIT := PROJECT_ROOT=/var/www/html /var/www/html/vendor/bin/phpunit
-PHP_CS_FIXER := PROJECT_ROOT=/var/www/html /var/www/html/vendor/bin/php-cs-fixer
-PHPSTAN := PROJECT_ROOT=/var/www/html /var/www/html/vendor/bin/phpstan
+PHPUNIT := PROJECT_ROOT=/var/www/html $(CONTAINER_PLUGIN_DIR)/vendor/bin/phpunit
+PHP_CS_FIXER := PROJECT_ROOT=/var/www/html $(CONTAINER_PLUGIN_DIR)/vendor/bin/php-cs-fixer
+PHPSTAN := PROJECT_ROOT=/var/www/html $(CONTAINER_PLUGIN_DIR)/vendor/bin/phpstan
 
 help:
 	@echo "Available commands:"
@@ -114,15 +114,7 @@ prepare: install-test-deps configure-tests install-plugin load-fixtures
 install-test-deps:
 	@echo "📦 Installing test dependencies..."
 
-	rm -rf vendor/
-
-	$(DOCKER_RUN) composer require \
-		--dev \
-		shopware/dev-tools \
-		shopware/fixture-bundle \
-		$(COMPOSER_FLAGS)
-
-	composer install $(COMPOSER_FLAGS)
+	$(DOCKER_RUN) bash -c "cd $(CONTAINER_PLUGIN_DIR) && rm -rf vendor/* && composer install $(COMPOSER_FLAGS)"
 
 configure-tests:
 	@echo "⚙️ Copying test configuration..."
@@ -224,7 +216,7 @@ clean:
 
 	rm -rf \
 		build \
-		vendor \
+		vendor/* \
 		composer.lock
 
 clean-all: clean

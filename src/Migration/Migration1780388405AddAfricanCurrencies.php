@@ -86,7 +86,7 @@ class Migration1780388405AddAfricanCurrencies extends MigrationStep
     ): void {
         $currencyId = $connection->fetchOne('SELECT id FROM currency WHERE iso_code = :isoCode', ['isoCode' => $isoCode]);
 
-        if (!$currencyId) {
+        if ($currencyId === false) {
             $currencyId = Uuid::randomBytes();
             $rounding = json_encode([
                 'decimals' => 2,
@@ -105,6 +105,10 @@ class Migration1780388405AddAfricanCurrencies extends MigrationStep
                 'tax_free_from' => 0,
                 'created_at' => (new DateTime())->format(Defaults::STORAGE_DATE_TIME_FORMAT),
             ]);
+        }
+
+        if (!is_string($currencyId)) {
+            throw new \RuntimeException('Failed to determine currency ID');
         }
 
         $enLanguageId = $this->getEnLanguageId($connection);
@@ -177,6 +181,6 @@ class Migration1780388405AddAfricanCurrencies extends MigrationStep
             return Uuid::fromHexToBytes(Defaults::LANGUAGE_SYSTEM);
         }
 
-        return $id ?: null;
+        return is_string($id) ? $id : null;
     }
 }

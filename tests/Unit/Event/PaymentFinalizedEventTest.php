@@ -23,7 +23,8 @@ class PaymentFinalizedEventTest extends TestCase
         $orderTransaction = $this->createMock(OrderTransactionEntity::class);
         $paymentTransactionStruct = $this->createMock(PaymentTransactionStruct::class);
 
-        $event = new class($context, $order, $orderTransaction, $paymentTransactionStruct) extends PaymentFinalizedEvent {};
+        $event = new class($order, $orderTransaction, $paymentTransactionStruct, $context) extends PaymentFinalizedEvent {
+        };
 
         $this->assertInstanceOf(ShopwareEvent::class, $event);
         $this->assertSame($context, $event->getContext());
