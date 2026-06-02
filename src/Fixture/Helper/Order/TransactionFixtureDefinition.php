@@ -16,8 +16,14 @@ class TransactionFixtureDefinition
 
     private ?string $stateName = null;
 
+    /**
+     * @var array<string, mixed>|null
+     */
     private ?array $amount = null;
 
+    /**
+     * @var array<string, mixed>
+     */
     private array $customFields = [];
 
     public function id(string $id): self
@@ -80,6 +86,9 @@ class TransactionFixtureDefinition
         return $this->stateName;
     }
 
+    /**
+     * @param array<string, mixed> $amount
+     */
     public function amount(array $amount): self
     {
         $this->amount = $amount;
@@ -87,11 +96,17 @@ class TransactionFixtureDefinition
         return $this;
     }
 
+    /**
+     * @return array<string, mixed>|null
+     */
     public function getAmount(): ?array
     {
         return $this->amount;
     }
 
+    /**
+     * @param array<string, mixed> $customFields
+     */
     public function customFields(array $customFields): self
     {
         $this->customFields = $customFields;
@@ -99,11 +114,17 @@ class TransactionFixtureDefinition
         return $this;
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     public function getCustomFields(): array
     {
         return $this->customFields;
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     public function toArray(?float $orderTotalPrice = null): array
     {
         $data = [

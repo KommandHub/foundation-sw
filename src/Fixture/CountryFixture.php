@@ -6,6 +6,7 @@ namespace Kommandhub\Foundation\Fixture;
 
 use Kommandhub\Foundation\Fixture\Helper\Country\CountryFixtureDefinition;
 use Shopware\Core\Framework\Context;
+use Shopware\Core\Framework\DataAbstractionLayer\EntityCollection;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
 use Shopware\FixtureBundle\FixtureInterface;
 use Shopware\FixtureBundle\Attribute\Fixture;
@@ -13,6 +14,9 @@ use Shopware\FixtureBundle\Attribute\Fixture;
 #[Fixture(groups: ['foundation'])]
 class CountryFixture implements FixtureInterface
 {
+    /**
+     * @param EntityRepository<\Shopware\Core\Framework\DataAbstractionLayer\EntityCollection<\Shopware\Core\System\Country\CountryEntity>> $countryRepository
+     */
     public function __construct(
         private readonly EntityRepository $countryRepository
     ) {

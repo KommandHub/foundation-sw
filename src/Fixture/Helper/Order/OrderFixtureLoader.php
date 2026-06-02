@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Kommandhub\Foundation\Fixture\Helper\Order;
 
 use Shopware\Core\Framework\Context;
+use Shopware\Core\Framework\DataAbstractionLayer\EntityCollection;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
 use Shopware\Core\System\SalesChannel\SalesChannelEntity;
@@ -13,6 +14,11 @@ use Shopware\Core\Test\TestDefaults;
 
 class OrderFixtureLoader
 {
+    /**
+     * @param EntityRepository<\Shopware\Core\Framework\DataAbstractionLayer\EntityCollection<\Shopware\Core\Checkout\Order\OrderEntity>> $orderRepository
+     * @param EntityRepository<\Shopware\Core\Framework\DataAbstractionLayer\EntityCollection<\Shopware\Core\System\SalesChannel\SalesChannelEntity>> $salesChannelRepository
+     * @param EntityRepository<\Shopware\Core\Framework\DataAbstractionLayer\EntityCollection<\Shopware\Core\System\Salutation\SalutationEntity>> $salutationRepository
+     */
     public function __construct(
         private readonly EntityRepository $orderRepository,
         private readonly EntityRepository $salesChannelRepository,

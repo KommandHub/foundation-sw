@@ -64,14 +64,23 @@ class OrderFixtureDefinition
 
     private ?OrderAddressFixtureDefinition $shippingAddress = null;
 
+    /**
+     * @var array<string, mixed>
+     */
     private array $customFields = [];
 
+    /**
+     * @var array<string, mixed>
+     */
     private array $itemRounding = [
         'decimals' => 2,
         'interval' => 0.01,
         'roundForNet' => true,
     ];
 
+    /**
+     * @var array<string, mixed>
+     */
     private array $totalRounding = [
         'decimals' => 2,
         'interval' => 0.01,
@@ -344,6 +353,9 @@ class OrderFixtureDefinition
         return $this->shippingAddress;
     }
 
+    /**
+     * @param array<string, mixed> $customFields
+     */
     public function customFields(array $customFields): self
     {
         $this->customFields = $customFields;
@@ -351,11 +363,17 @@ class OrderFixtureDefinition
         return $this;
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     public function getCustomFields(): array
     {
         return $this->customFields;
     }
 
+    /**
+     * @param array<string, mixed> $itemRounding
+     */
     public function itemRounding(array $itemRounding): self
     {
         $this->itemRounding = $itemRounding;
@@ -363,11 +381,17 @@ class OrderFixtureDefinition
         return $this;
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     public function getItemRounding(): array
     {
         return $this->itemRounding;
     }
 
+    /**
+     * @param array<string, mixed> $totalRounding
+     */
     public function totalRounding(array $totalRounding): self
     {
         $this->totalRounding = $totalRounding;
@@ -375,6 +399,9 @@ class OrderFixtureDefinition
         return $this;
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     public function getTotalRounding(): array
     {
         return $this->totalRounding;
@@ -392,6 +419,9 @@ class OrderFixtureDefinition
         return $this->salutationId;
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     public function toArray(): array
     {
         $totalPrice = $this->totalPrice;
@@ -404,7 +434,8 @@ class OrderFixtureDefinition
                 $price = $item->getPrice();
 
                 if ($price && isset($price['totalPrice'])) {
-                    $sum += $price['totalPrice'];
+                    $totalPriceValue = $price['totalPrice'];
+                    $sum += is_numeric($totalPriceValue) ? (float) $totalPriceValue : 0.0;
                 }
             }
             $positionPrice = $sum;

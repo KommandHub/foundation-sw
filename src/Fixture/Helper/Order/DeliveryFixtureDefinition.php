@@ -22,8 +22,14 @@ class DeliveryFixtureDefinition
 
     private ?string $shippingDateLatest = null;
 
+    /**
+     * @var array<string, mixed>|null
+     */
     private ?array $shippingCosts = null;
 
+    /**
+     * @var array<string, mixed>
+     */
     private array $customFields = [];
 
     public function id(string $id): self
@@ -122,6 +128,9 @@ class DeliveryFixtureDefinition
         return $this->shippingDateLatest;
     }
 
+    /**
+     * @param array<string, mixed> $shippingCosts
+     */
     public function shippingCosts(array $shippingCosts): self
     {
         $this->shippingCosts = $shippingCosts;
@@ -129,11 +138,17 @@ class DeliveryFixtureDefinition
         return $this;
     }
 
+    /**
+     * @return array<string, mixed>|null
+     */
     public function getShippingCosts(): ?array
     {
         return $this->shippingCosts;
     }
 
+    /**
+     * @param array<string, mixed> $customFields
+     */
     public function customFields(array $customFields): self
     {
         $this->customFields = $customFields;
@@ -141,11 +156,17 @@ class DeliveryFixtureDefinition
         return $this;
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     public function getCustomFields(): array
     {
         return $this->customFields;
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     public function toArray(): array
     {
         $data = [

@@ -86,6 +86,27 @@ class CountryFixtureDefinition
         return $this;
     }
 
+    public function vatIdPattern(string $vatIdPattern): self
+    {
+        $this->vatIdPattern = $vatIdPattern;
+
+        return $this;
+    }
+
+    public function checkAdvancedPostalCodePattern(string $checkAdvancedPostalCodePattern): self
+    {
+        $this->checkAdvancedPostalCodePattern = $checkAdvancedPostalCodePattern;
+
+        return $this;
+    }
+
+    public function defaultPostalCodePattern(string $defaultPostalCodePattern): self
+    {
+        $this->defaultPostalCodePattern = $defaultPostalCodePattern;
+
+        return $this;
+    }
+
     public function taxFree(bool $taxFree): self
     {
         $this->taxFree = $taxFree;
@@ -93,6 +114,9 @@ class CountryFixtureDefinition
         return $this;
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     public function toArray(): array
     {
         $data = [

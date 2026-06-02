@@ -20,12 +20,24 @@ class LineItemFixtureDefinition
 
     private ?int $position = null;
 
+    /**
+     * @var array<string, mixed>|null
+     */
     private ?array $price = null;
 
+    /**
+     * @var array<string, mixed>|null
+     */
     private ?array $priceDefinition = null;
 
+    /**
+     * @var array<string, mixed>
+     */
     private array $payload = [];
 
+    /**
+     * @var array<string, mixed>
+     */
     private array $customFields = [];
 
     public function id(string $id): self
@@ -113,6 +125,9 @@ class LineItemFixtureDefinition
         return $this->position;
     }
 
+    /**
+     * @param array<string, mixed> $price
+     */
     public function price(array $price): self
     {
         $this->price = $price;
@@ -120,11 +135,17 @@ class LineItemFixtureDefinition
         return $this;
     }
 
+    /**
+     * @return array<string, mixed>|null
+     */
     public function getPrice(): ?array
     {
         return $this->price;
     }
 
+    /**
+     * @param array<string, mixed> $priceDefinition
+     */
     public function priceDefinition(array $priceDefinition): self
     {
         $this->priceDefinition = $priceDefinition;
@@ -132,11 +153,17 @@ class LineItemFixtureDefinition
         return $this;
     }
 
+    /**
+     * @return array<string, mixed>|null
+     */
     public function getPriceDefinition(): ?array
     {
         return $this->priceDefinition;
     }
 
+    /**
+     * @param array<string, mixed> $payload
+     */
     public function payload(array $payload): self
     {
         $this->payload = $payload;
@@ -144,11 +171,17 @@ class LineItemFixtureDefinition
         return $this;
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     public function getPayload(): array
     {
         return $this->payload;
     }
 
+    /**
+     * @param array<string, mixed> $customFields
+     */
     public function customFields(array $customFields): self
     {
         $this->customFields = $customFields;
@@ -156,11 +189,17 @@ class LineItemFixtureDefinition
         return $this;
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     public function getCustomFields(): array
     {
         return $this->customFields;
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     public function toArray(): array
     {
         $label = $this->label ?? 'Product ' . ($this->referencedId ?? $this->productId ?? 'Unknown');
@@ -169,8 +208,11 @@ class LineItemFixtureDefinition
         $totalPrice = 0.0;
 
         if ($this->price !== null) {
-            $unitPrice = $this->price['unitPrice'] ?? $this->price['totalPrice'] ?? 0.0;
-            $totalPrice = $this->price['totalPrice'] ?? ($unitPrice * $this->quantity);
+            $unitPriceValue = $this->price['unitPrice'] ?? $this->price['totalPrice'] ?? 0.0;
+            $unitPrice = is_numeric($unitPriceValue) ? (float) $unitPriceValue : 0.0;
+
+            $totalPriceValue = $this->price['totalPrice'] ?? ($unitPrice * $this->quantity);
+            $totalPrice = is_numeric($totalPriceValue) ? (float) $totalPriceValue : 0.0;
         }
 
         $data = [

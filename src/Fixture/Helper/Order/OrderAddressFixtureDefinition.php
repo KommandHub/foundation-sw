@@ -36,6 +36,9 @@ class OrderAddressFixtureDefinition
 
     private ?string $additionalAddressLine2 = null;
 
+    /**
+     * @var array<string, mixed>
+     */
     private array $customFields = [];
 
     public function id(string $id): self
@@ -218,6 +221,9 @@ class OrderAddressFixtureDefinition
         return $this->additionalAddressLine2;
     }
 
+    /**
+     * @param array<string, mixed> $customFields
+     */
     public function customFields(array $customFields): self
     {
         $this->customFields = $customFields;
@@ -225,11 +231,17 @@ class OrderAddressFixtureDefinition
         return $this;
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     public function getCustomFields(): array
     {
         return $this->customFields;
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     public function toArray(): array
     {
         $data = [
