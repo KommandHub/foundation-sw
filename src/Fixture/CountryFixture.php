@@ -6,7 +6,6 @@ namespace Kommandhub\Foundation\Fixture;
 
 use Kommandhub\Foundation\Fixture\Helper\Country\CountryFixtureDefinition;
 use Shopware\Core\Framework\Context;
-use Shopware\Core\Framework\DataAbstractionLayer\EntityCollection;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
 use Shopware\FixtureBundle\FixtureInterface;
 use Shopware\FixtureBundle\Attribute\Fixture;

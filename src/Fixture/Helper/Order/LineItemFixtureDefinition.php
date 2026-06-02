@@ -209,10 +209,10 @@ class LineItemFixtureDefinition
 
         if ($this->price !== null) {
             $unitPriceValue = $this->price['unitPrice'] ?? $this->price['totalPrice'] ?? 0.0;
-            $unitPrice = is_numeric($unitPriceValue) ? (float) $unitPriceValue : 0.0;
+            $unitPrice = is_numeric($unitPriceValue) ? (float)$unitPriceValue : 0.0;
 
             $totalPriceValue = $this->price['totalPrice'] ?? ($unitPrice * $this->quantity);
-            $totalPrice = is_numeric($totalPriceValue) ? (float) $totalPriceValue : 0.0;
+            $totalPrice = is_numeric($totalPriceValue) ? (float)$totalPriceValue : 0.0;
         }
 
         $data = [

@@ -435,7 +435,7 @@ class OrderFixtureDefinition
 
                 if ($price && isset($price['totalPrice'])) {
                     $totalPriceValue = $price['totalPrice'];
-                    $sum += is_numeric($totalPriceValue) ? (float) $totalPriceValue : 0.0;
+                    $sum += is_numeric($totalPriceValue) ? (float)$totalPriceValue : 0.0;
                 }
             }
             $positionPrice = $sum;

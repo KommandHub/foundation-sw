@@ -98,7 +98,7 @@ class OrderFixture implements FixtureInterface
     {
         $shippingMethodId = $salesChannel->getShippingMethodId();
 
-        if (!Uuid::isValid((string) $shippingMethodId)) {
+        if (!Uuid::isValid((string)$shippingMethodId)) {
             throw new \RuntimeException('Sales channel shipping method not found.');
         }
 
