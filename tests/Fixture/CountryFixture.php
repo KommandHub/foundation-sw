@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Kommandhub\Foundation\Fixture;
+namespace Kommandhub\Foundation\Tests\Fixture;
 
-use Kommandhub\Foundation\Fixture\Helper\Country\CountryFixtureDefinition;
+use Kommandhub\Foundation\Tests\Fixture\Helper\Country\CountryFixtureDefinition;
 use Shopware\Core\Framework\Context;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
 use Shopware\FixtureBundle\FixtureInterface;

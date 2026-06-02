@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Kommandhub\Foundation\Fixture\Helper\Order;
+namespace Kommandhub\Foundation\Tests\Fixture\Helper\Order;
 
 use Shopware\Core\Defaults;
 use Shopware\Core\Framework\Uuid\Uuid;

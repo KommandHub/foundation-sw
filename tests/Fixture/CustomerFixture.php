@@ -1,6 +1,6 @@
 <?php
 
-namespace Kommandhub\Foundation\Fixture;
+namespace Kommandhub\Foundation\Tests\Fixture;
 
 use Shopware\FixtureBundle\FixtureInterface;
 use Shopware\FixtureBundle\Attribute\Fixture;

@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Kommandhub\Foundation\Fixture;
+namespace Kommandhub\Foundation\Tests\Fixture;
 
-use Kommandhub\Foundation\Fixture\Helper\Order\DeliveryFixtureDefinition;
-use Kommandhub\Foundation\Fixture\Helper\Order\OrderAddressFixtureDefinition;
-use Kommandhub\Foundation\Fixture\Helper\Order\OrderFixtureDefinition;
-use Kommandhub\Foundation\Fixture\Helper\Order\OrderFixtureLoader;
-use Kommandhub\Foundation\Fixture\Helper\Order\TransactionFixtureDefinition;
+use Kommandhub\Foundation\Tests\Fixture\Helper\Order\DeliveryFixtureDefinition;
+use Kommandhub\Foundation\Tests\Fixture\Helper\Order\OrderAddressFixtureDefinition;
+use Kommandhub\Foundation\Tests\Fixture\Helper\Order\OrderFixtureDefinition;
+use Kommandhub\Foundation\Tests\Fixture\Helper\Order\OrderFixtureLoader;
+use Kommandhub\Foundation\Tests\Fixture\Helper\Order\TransactionFixtureDefinition;
 use Shopware\Core\Checkout\Order\Aggregate\OrderDelivery\OrderDeliveryStates;
 use Shopware\Core\Checkout\Order\Aggregate\OrderTransaction\OrderTransactionStates;
 use Shopware\Core\Checkout\Order\OrderStates;

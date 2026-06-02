@@ -47,9 +47,9 @@
             <directory>src/Migration</directory>
             <directory>src/Resources</directory>
             <directory>src/DependencyInjection</directory>
-            <directory>src/Fixture</directory>
             <directory>src/Entity</directory>
             <directory>tests</directory>
+            <directory>tests/Fixture</directory>
             <directory>vendor</directory>
         </exclude>
     </source>

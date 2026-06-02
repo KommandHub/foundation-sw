@@ -6,7 +6,8 @@
     "license": "proprietary",
     "autoload": {
         "psr-4": {
-            "Kommandhub\\Foundation\\": "src/"
+            "Kommandhub\\Foundation\\": "src/",
+            "Kommandhub\\Foundation\\Tests\\Fixture\\": "tests/Fixture"
         }
     },
     "autoload-dev": {

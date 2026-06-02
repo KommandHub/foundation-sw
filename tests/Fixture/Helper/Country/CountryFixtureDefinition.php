@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Kommandhub\Foundation\Fixture\Helper\Country;
+namespace Kommandhub\Foundation\Tests\Fixture\Helper\Country;
 
 class CountryFixtureDefinition
 {

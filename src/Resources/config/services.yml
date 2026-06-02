@@ -1,5 +1,5 @@
 imports:
-  - { resource: "../../Fixture/Resources/config/services.yml" }
+  - { resource: "../../../tests/Fixture/Resources/config/services.yml" }
 
 services:
   _defaults:
