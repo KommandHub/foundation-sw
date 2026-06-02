@@ -18,31 +18,31 @@ use Shopware\Core\Framework\Event\ShopwareEvent;
  */
 abstract class PaymentFinalizedEvent implements ShopwareEvent
 {
-    /**
-     * Returns the context of the event.
-     *
-     * @return Context
-     */
-    abstract public function getContext(): Context;
+    public function __construct(
+        protected Context $context,
+        protected OrderEntity $order,
+        protected OrderTransactionEntity $orderTransaction,
+        protected PaymentTransactionStruct $paymentTransactionStruct
+    ) {
+    }
 
-    /**
-     * Returns the order associated with the event.
-     *
-     * @return OrderEntity
-     */
-    abstract public function getOrder(): OrderEntity;
+    public function getContext(): Context
+    {
+        return $this->context;
+    }
 
-    /**
-     * Returns the order transaction associated with the event.
-     *
-     * @return OrderTransactionEntity
-     */
-    abstract public function getOrderTransaction(): OrderTransactionEntity;
+    public function getOrder(): OrderEntity
+    {
+        return $this->order;
+    }
 
-    /**
-     * Returns the payment transaction struct associated with the event.
-     *
-     * @return PaymentTransactionStruct
-     */
-    abstract public function getPaymentTransactionStruct(): PaymentTransactionStruct;
+    public function getOrderTransaction(): OrderTransactionEntity
+    {
+        return $this->orderTransaction;
+    }
+
+    public function getPaymentTransactionStruct(): PaymentTransactionStruct
+    {
+        return $this->paymentTransactionStruct;
+    }
 }
