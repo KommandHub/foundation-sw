@@ -1,0 +1,16 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: true
+
+  Kommandhub\Foundation\Fixture\Helper\Order\OrderFixtureLoader:
+    arguments:
+      $orderRepository: '@order.repository'
+      $salesChannelRepository: '@sales_channel.repository'
+      $initialStateIdLoader: '@Shopware\Core\System\StateMachine\Loader\InitialStateIdLoader'
+      $salutationRepository: '@salutation.repository'
+
+  Kommandhub\Foundation\Fixture\:
+    resource: '../../*'
+    exclude: '../../{DependencyInjection,Entity,Test,Resources}'

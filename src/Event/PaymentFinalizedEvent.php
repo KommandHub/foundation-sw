@@ -15,15 +15,34 @@ use Shopware\Core\Framework\Event\ShopwareEvent;
  * This abstract class serves as the base for handling finalized payment events.
  *
  * Provides access to the context, order details, order transaction, and payment transaction struct.
- * @package Kommandhub\Foundation\Event
  */
 abstract class PaymentFinalizedEvent implements ShopwareEvent
 {
+    /**
+     * Returns the context of the event.
+     *
+     * @return Context
+     */
     abstract public function getContext(): Context;
 
+    /**
+     * Returns the order associated with the event.
+     *
+     * @return OrderEntity
+     */
     abstract public function getOrder(): OrderEntity;
 
+    /**
+     * Returns the order transaction associated with the event.
+     *
+     * @return OrderTransactionEntity
+     */
     abstract public function getOrderTransaction(): OrderTransactionEntity;
 
+    /**
+     * Returns the payment transaction struct associated with the event.
+     *
+     * @return PaymentTransactionStruct
+     */
     abstract public function getPaymentTransactionStruct(): PaymentTransactionStruct;
 }

@@ -15,4 +15,10 @@ class KommandhubFoundationSWTest extends TestCase
         $plugin = new KommandhubFoundationSW(true, '');
         $this->assertInstanceOf(Plugin::class, $plugin);
     }
+
+    public function testExecuteComposerCommandsReturnsTrue(): void
+    {
+        $plugin = new KommandhubFoundationSW(true, '');
+        $this->assertTrue($plugin->executeComposerCommands());
+    }
 }

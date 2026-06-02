@@ -2,7 +2,7 @@
     "name": "kommandhub/foundation-sw",
     "description": "Kommandhub Foundation plugin for Shopware",
     "type": "shopware-platform-plugin",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "license": "proprietary",
     "autoload": {
         "psr-4": {
@@ -48,6 +48,7 @@
         "shopware/dev-tools": "^1.5",
         "friendsofphp/php-cs-fixer": "^3.94",
         "phpstan/phpstan": "^2.1",
-        "rregeer/phpunit-coverage-check": "^0.3.1"
+        "rregeer/phpunit-coverage-check": "^0.3.1",
+        "shopware/fixture-bundle": "^0.1.0"
     }
 }

@@ -7,7 +7,7 @@ use Shopware\Core\TestBootstrapper;
 $loader = (new TestBootstrapper())
     ->addCallingPlugin()
     ->addActivePlugins('KommandhubFoundationSW')
-    ->setForceInstallPlugins(true)
+    ->setForceInstallPlugins(false)
     ->bootstrap()
     ->getClassLoader();
 

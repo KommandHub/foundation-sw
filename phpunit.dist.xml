@@ -28,8 +28,14 @@
     </php>
 
     <testsuites>
-        <testsuite name="Project Test Suite">
-            <directory>tests</directory>
+        <testsuite name="Functional Testsuite">
+            <directory>tests/Functional</directory>
+        </testsuite>
+        <testsuite name="Integration Testsuite">
+            <directory>tests/Integration</directory>
+        </testsuite>
+        <testsuite name="Unit Testsuite">
+            <directory>tests/Unit</directory>
         </testsuite>
     </testsuites>
 
@@ -41,6 +47,7 @@
             <directory>src/Migration</directory>
             <directory>src/Resources</directory>
             <directory>src/DependencyInjection</directory>
+            <directory>src/Fixture</directory>
             <directory>src/Entity</directory>
             <directory>tests</directory>
             <directory>vendor</directory>

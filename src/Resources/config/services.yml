@@ -1,3 +1,6 @@
+imports:
+  - { resource: "../../Fixture/Resources/config/services.yml" }
+
 services:
   _defaults:
     autowire: true
@@ -6,4 +9,4 @@ services:
 
   Kommandhub\Foundation\:
     resource: '../../*'
-    exclude: '../../{DependencyInjection,Entity,Migrations,Tests,Kernel.php}'
+    exclude: '../../{DependencyInjection,EntityHandler/Abstract*,Entity,Migrations,Tests,Kernel.php}'

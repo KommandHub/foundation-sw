@@ -5,9 +5,7 @@ parameters:
     # Set the level to 9 (the highest level)
     level: 9
 
-    ignoreErrors:
-        - identifier: missingType.iterableValue
-        - identifier: missingType.generics
+    ignoreErrors: []
 
     parallel:
         jobSize: 20
