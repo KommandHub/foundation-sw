@@ -43,24 +43,27 @@ bin/console cache:clear
 
 To ensure a consistent environment, tests and development tools should be run inside the project's Docker container.
 
-### 1. Run Tests from Plugin Directory
+### 1. Setup Development Environment
 
-You can run the tests directly using the provided `Makefile`.
+Follow these steps to prepare your environment:
 
 ```bash
+# Navigate to the plugin directory
 cd custom/plugins/KommandhubFoundationSW
-make test
-```
 
-### 2. Enter the Container Shell
+# Start the Docker containers
+make up
 
-```bash
+# Enter the container shell
 make shell
+
+# Prepare the test environment (inside the shell)
+make prepare
 ```
 
-### 3. Available Development Commands
+### 2. Available Development Commands
 
-Once inside the container (or via `make` from the host), you can execute the following:
+Once the environment is prepared, you can execute the following commands (either inside the shell or via `make` from the host):
 
 #### Run PHPUnit Tests
 ```bash
