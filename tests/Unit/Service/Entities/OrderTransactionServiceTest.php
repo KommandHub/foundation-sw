@@ -7,6 +7,7 @@ namespace Kommandhub\Foundation\Tests\Unit\Service\Entities;
 use Kommandhub\Foundation\EntityHandler\OrderTransaction\OrderTransactionReader;
 use Kommandhub\Foundation\EntityHandler\OrderTransaction\OrderTransactionWriter;
 use Kommandhub\Foundation\Service\Entities\OrderTransactionService;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use Shopware\Core\Checkout\Order\Aggregate\OrderTransaction\OrderTransactionEntity;
@@ -14,6 +15,7 @@ use Shopware\Core\Checkout\Payment\PaymentException;
 use Shopware\Core\Framework\Context;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
 
+#[CoversClass(OrderTransactionService::class)]
 class OrderTransactionServiceTest extends TestCase
 {
     private OrderTransactionReader&MockObject $reader;

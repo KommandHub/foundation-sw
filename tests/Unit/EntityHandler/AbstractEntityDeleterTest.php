@@ -5,11 +5,13 @@ declare(strict_types=1);
 namespace Kommandhub\Foundation\Tests\Unit\EntityHandler;
 
 use Kommandhub\Foundation\EntityHandler\AbstractEntityDeleter;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use Shopware\Core\Framework\Context;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
 
+#[CoversClass(AbstractEntityDeleter::class)]
 class AbstractEntityDeleterTest extends TestCase
 {
     private EntityRepository&MockObject $repository;

@@ -7,6 +7,8 @@ namespace Kommandhub\Foundation\Tests\Functional\EntityHandler\General;
 use Kommandhub\Foundation\EntityHandler\AbstractEntityDeleter;
 use Kommandhub\Foundation\EntityHandler\AbstractEntityReader;
 use Kommandhub\Foundation\EntityHandler\AbstractEntityWriter;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\UsesClass;
 use PHPUnit\Framework\TestCase;
 use Shopware\Core\Checkout\Order\OrderCollection;
 use Shopware\Core\Checkout\Order\OrderEntity;
@@ -16,6 +18,9 @@ use Shopware\Core\Framework\Test\TestCaseBase\IntegrationTestBehaviour;
 use Shopware\Core\Framework\Uuid\Uuid;
 use Shopware\Core\System\StateMachine\Loader\InitialStateIdLoader;
 
+#[CoversClass(AbstractEntityDeleter::class)]
+#[UsesClass(AbstractEntityReader::class)]
+#[UsesClass(AbstractEntityWriter::class)]
 class AbstractEntityDeleterTest extends TestCase
 {
     use IntegrationTestBehaviour;

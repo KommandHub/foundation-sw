@@ -6,6 +6,7 @@ namespace Kommandhub\Foundation\Tests\Functional\EntityHandler\OrderTransaction;
 
 use Kommandhub\Foundation\EntityHandler\OrderTransaction\OrderTransactionWriter;
 use Kommandhub\Foundation\Tests\Fixture\OrderFixture;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 use Shopware\Core\Checkout\Order\Aggregate\OrderTransaction\OrderTransactionStates;
 use Shopware\Core\Framework\Context;
@@ -15,6 +16,7 @@ use Shopware\Core\Framework\Test\TestCaseBase\IntegrationTestBehaviour;
 use Shopware\Core\Framework\Uuid\Uuid;
 use Shopware\Core\System\StateMachine\Loader\InitialStateIdLoader;
 
+#[CoversClass(OrderTransactionWriter::class)]
 class OrderTransactionWriterTest extends TestCase
 {
     use IntegrationTestBehaviour;

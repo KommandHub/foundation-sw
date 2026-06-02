@@ -5,9 +5,11 @@ declare(strict_types=1);
 namespace Kommandhub\Foundation\Tests\Unit;
 
 use Kommandhub\Foundation\KommandhubFoundationSW;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 use Shopware\Core\Framework\Plugin;
 
+#[CoversClass(KommandhubFoundationSW::class)]
 class KommandhubFoundationSWTest extends TestCase
 {
     public function testPluginIsInstantiable(): void

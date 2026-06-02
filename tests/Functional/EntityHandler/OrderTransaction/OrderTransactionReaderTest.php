@@ -6,6 +6,7 @@ namespace Kommandhub\Foundation\Tests\Functional\EntityHandler\OrderTransaction;
 
 use Kommandhub\Foundation\EntityHandler\OrderTransaction\OrderTransactionReader;
 use Kommandhub\Foundation\Tests\Fixture\OrderFixture;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 use Shopware\Core\Checkout\Order\Aggregate\OrderTransaction\OrderTransactionCollection;
 use Shopware\Core\Checkout\Order\Aggregate\OrderTransaction\OrderTransactionEntity;
@@ -17,6 +18,7 @@ use Shopware\Core\Framework\Test\TestCaseBase\IntegrationTestBehaviour;
 use Shopware\Core\Framework\Uuid\Uuid;
 use Shopware\Core\System\StateMachine\Loader\InitialStateIdLoader;
 
+#[CoversClass(OrderTransactionReader::class)]
 class OrderTransactionReaderTest extends TestCase
 {
     use IntegrationTestBehaviour;

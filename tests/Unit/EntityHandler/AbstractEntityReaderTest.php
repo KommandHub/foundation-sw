@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Kommandhub\Foundation\Tests\Unit\EntityHandler;
 
 use Kommandhub\Foundation\EntityHandler\AbstractEntityReader;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use Shopware\Core\Framework\Context;
@@ -14,6 +15,7 @@ use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\EntitySearchResult;
 
+#[CoversClass(AbstractEntityReader::class)]
 class AbstractEntityReaderTest extends TestCase
 {
     private EntityRepository&MockObject $repository;

@@ -5,11 +5,13 @@ declare(strict_types=1);
 namespace Kommandhub\Foundation\Tests\Unit\EntityHandler;
 
 use Kommandhub\Foundation\EntityHandler\AbstractEntityWriter;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use Shopware\Core\Framework\Context;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
 
+#[CoversClass(AbstractEntityWriter::class)]
 class AbstractEntityWriterTest extends TestCase
 {
     private EntityRepository&MockObject $repository;

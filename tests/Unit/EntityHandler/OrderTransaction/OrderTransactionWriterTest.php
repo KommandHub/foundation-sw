@@ -5,12 +5,14 @@ declare(strict_types=1);
 namespace Kommandhub\Foundation\Tests\Unit\EntityHandler\OrderTransaction;
 
 use Kommandhub\Foundation\EntityHandler\OrderTransaction\OrderTransactionWriter;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use Shopware\Core\Framework\Context;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
 use Shopware\Core\Framework\Uuid\Uuid;
 
+#[CoversClass(OrderTransactionWriter::class)]
 class OrderTransactionWriterTest extends TestCase
 {
     private EntityRepository&MockObject $repository;
