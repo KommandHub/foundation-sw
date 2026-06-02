@@ -23,7 +23,8 @@
         }
     ],
     "require": {
-        "shopware/core": "~6.6.0 || ~6.7.0"
+        "shopware/core": "~6.6.0 || ~6.7.0",
+        "shopware/fixture-bundle": "^0.1.0"
     },
     "extra": {
         "shopware-plugin-class": "Kommandhub\\Foundation\\KommandhubFoundationSW",
@@ -49,7 +50,6 @@
         "shopware/dev-tools": "^1.5",
         "friendsofphp/php-cs-fixer": "^3.94",
         "phpstan/phpstan": "^2.1",
-        "rregeer/phpunit-coverage-check": "^0.3.1",
-        "shopware/fixture-bundle": "^0.1.0"
+        "rregeer/phpunit-coverage-check": "^0.3.1"
     }
 }
